@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JavaScript Drum Kit</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -48,17 +49,20 @@
         </div>
     </div>
     <audio data-key="65" src="sounds/clap.wav"></audio>
-    <audio data-key="83" src="sounds/clap.wav"></audio>
-    <audio data-key="68" src="sounds/clap.wav"></audio>
-    <audio data-key="70" src="sounds/clap.wav"></audio>
-    <audio data-key="71" src="sounds/clap.wav"></audio>
-    <audio data-key="72" src="sounds/clap.wav"></audio>
-    <audio data-key="74" src="sounds/clap.wav"></audio>
-    <audio data-key="75" src="sounds/clap.wav"></audio>
-    <audio data-key="76" src="sounds/clap.wav"></audio>
+    <audio data-key="83" src="sounds/hihat.wav"></audio>
+    <audio data-key="68" src="sounds/kick.wav"></audio>
+    <audio data-key="70" src="sounds/openhat.wav"></audio>
+    <audio data-key="71" src="sounds/boom.wav"></audio>
+    <audio data-key="72" src="sounds/ride.wav"></audio>
+    <audio data-key="74" src="sounds/snare.wav"></audio>
+    <audio data-key="75" src="sounds/tom.wav"></audio>
+    <audio data-key="76" src="sounds/tink.wav"></audio>
     <script>
         window.addEventListener("keydown", function(e){
-            console.log(e.keyCode)
+            const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+            if(!audio) return; //stop the function for running
+            audio.currentTime = 0
+            audio.play();
         });
     </script>
 </body>
